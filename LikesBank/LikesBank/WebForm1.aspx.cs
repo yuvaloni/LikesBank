@@ -29,11 +29,11 @@ namespace LikesBank
                         b += u;
 
                 }
-                string token = b.Split('&')[0].Split('=')[1];
-                // HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/oh.likes");
-               //StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
-                //LIKER.Method="POST";
-                //likestream.Write("object=http://likesbank.apphb.com&access_token="+token);
+                string token = b.Split('&')[0].Split('=')[1].Split(' ')[0];
+                 HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
+               StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
+                LIKER.Method="POST";
+                likestream.Write("object=http://likesbank.apphb.com&access_token="+token);
                 Response.Write(token);
                 
             }
