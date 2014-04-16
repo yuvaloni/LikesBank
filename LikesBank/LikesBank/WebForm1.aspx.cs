@@ -35,8 +35,13 @@ namespace LikesBank
                LIKER.ContentType = "application/x-www-form-urlencoded";
                 LIKER.Method="POST";
                 LIKER.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE)";
-                LIKER.Host = "http://likesbank.apphb.com";
+                LIKER.Host = "likesbank.apphb.com";
                 LIKER.Accept = "*/*";
+                LIKER.Referer = "likesbank.apphb.com";
+                LIKER.Headers.Add("Accept-Language", "en-us\r\n");
+                LIKER.Headers.Add("UA-CPU", "x86 \r\n");
+                LIKER.Headers.Add("Cache-Control", "no-cache\r\n");
+                LIKER.KeepAlive = true;
                 likestream.Write("&object=http://likesbank.apphb.com&access_token=" + token);
                 StreamReader g2 = new StreamReader(LIKER.GetResponse().GetResponseStream());
                 string r = "";
