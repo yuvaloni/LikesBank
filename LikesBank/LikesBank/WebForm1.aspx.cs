@@ -13,23 +13,30 @@ namespace LikesBank
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string shit = (Request.QueryString["code"]);
-            if (shit == null)
+
+            if (Request.QueryString["code"] == null)
                 Response.Redirect("https://www.facebook.com/dialog/oauth?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/webform1.aspx&response_type=code");
             else
             {
                 HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/webform1.aspx&client_secret="+Request.QueryString["code"]);
                 StreamReader g = new StreamReader(fuck.GetResponse().GetResponseStream());
                 string u = "";
+                string b = "";
                 while (u != null)
                 {
                     u = g.ReadLine();
                     if (u != null)
-                        Response.Write(u + "\n");
+                        b += u;
 
                 }
+                string token = b.Split('&')[0].Split('=')[1];
+                HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/oh.likes");
+                StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
+                LIKER.Method="POST";
+                likestream.Write("access_token="+token+"&object=http://likesbank.apphb.com");
+                
             }
-                Response.Write("null");
+
         }
     }
 }
