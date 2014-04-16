@@ -18,7 +18,7 @@ namespace LikesBank
                 Response.Redirect("https://www.facebook.com/dialog/oauth?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/webform1.aspx&response_type=code");
             else
             {
-                HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/webform1.aspx&client_secret=0420278b8f5a0985ba21458afac9e257&code=" + Request.QueryString["code"]);
+                HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/webform1.aspx&client_secret=0420278b8f5a0985ba21458afac9e257&code=" + Request.QueryString["code"]+"&scope=publish_actions");
                 StreamReader g = new StreamReader(fuck.GetResponse().GetResponseStream());
                 string u = "";
                 string b = "";
@@ -33,7 +33,7 @@ namespace LikesBank
                  HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
                StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
                 LIKER.Method="POST";
-                likestream.Write("object=http://likesbank.apphb.com&access_token="+token);
+                likestream.Write("&object=http://likesbank.apphb.com&access_token=" + token);
                 StreamReader g2 = new StreamReader(LIKER.GetResponse().GetResponseStream());
                 string r = "";
                 while(r!=null)
@@ -42,7 +42,7 @@ namespace LikesBank
                     if (r != null)
                         Response.Write(r);
                 }
-                Response.Write(token);
+                Response.Write("success!");
                 
             }
 
