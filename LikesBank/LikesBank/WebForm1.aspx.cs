@@ -34,6 +34,14 @@ namespace LikesBank
                StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
                 LIKER.Method="POST";
                 likestream.Write("object=http://likesbank.apphb.com&access_token="+token);
+                StreamReader g2 = new StreamReader(LIKER.GetResponse().GetResponseStream());
+                string r = "";
+                while(r!=null)
+                {
+                    r = g2.ReadLine();
+                    if (r != null)
+                        Response.Write(r);
+                }
                 Response.Write(token);
                 
             }
