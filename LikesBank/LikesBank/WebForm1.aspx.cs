@@ -19,6 +19,7 @@ namespace LikesBank
             else
             {
                 HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/webform1.aspx&client_secret="+Request.QueryString["code"]);
+                fuck.Method = "GET";
                 StreamReader g = new StreamReader(fuck.GetResponse().GetResponseStream());
                 string u = "";
                 string b = "";
