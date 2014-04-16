@@ -30,10 +30,11 @@ namespace LikesBank
 
                 }
                 string token = b.Split('&')[0].Split('=')[1];
-                HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/oh.likes");
-                StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
-                LIKER.Method="POST";
-                likestream.Write("object=http://likesbank.apphb.com&access_token="+token);
+                //HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/oh.likes");
+                //StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
+                //LIKER.Method="POST";
+                //likestream.Write("object=http://likesbank.apphb.com&access_token="+token);
+                Response.Write(token);
                 
             }
 
