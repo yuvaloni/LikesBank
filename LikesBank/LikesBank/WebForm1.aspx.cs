@@ -32,8 +32,8 @@ namespace LikesBank
                 g.Close();
                 string token = b.Split('&')[0].Split('=')[1].Split(' ')[0];
                  HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
+                 LIKER.Method = "POST";
                StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
-                LIKER.Method="Post";
                 LIKER.ContentType = "text";
                 likestream.Write("object=http://beatlive.apphb.com&access_token=" + token);
                 likestream.Close();
