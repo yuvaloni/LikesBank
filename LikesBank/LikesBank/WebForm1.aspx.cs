@@ -46,7 +46,7 @@ namespace LikesBank
                //         Response.Write(r);
                // }
                // g2.Close();
-                Response.Write("success!");
+                Response.Write(token);
                 
             }
 
