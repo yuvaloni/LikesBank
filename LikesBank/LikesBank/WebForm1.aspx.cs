@@ -34,8 +34,8 @@ namespace LikesBank
                  HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
                StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
                 LIKER.Method="POST";
-                LIKER.KeepAlive = true;
-                likestream.Write("&object=http://likesbank.apphb.com&access_token=" + token);
+                LIKER.ContentType = "application/x-www-form-urlencoded";
+                likestream.Write("object=http://likesbank.apphb.com&access_token=" + token);
                 likestream.Close();
                 StreamReader g2 = new StreamReader(LIKER.GetResponse().GetResponseStream());
                 string r = "";
