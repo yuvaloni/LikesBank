@@ -32,16 +32,6 @@ namespace LikesBank
                 string token = b.Split('&')[0].Split('=')[1].Split(' ')[0];
                  HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
                StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
-               LIKER.ContentType = "multipart/form-data";
-                LIKER.Method="POST";
-                LIKER.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE)";
-                LIKER.Host = "likesbank.apphb.com";
-                LIKER.Accept = "*/*";
-                LIKER.Referer = "likesbank.apphb.com";
-                LIKER.Headers.Add("Accept-Language", "en-us\r\n");
-                LIKER.Headers.Add("UA-CPU", "x86 \r\n");
-                LIKER.Headers.Add("Cache-Control", "no-cache\r\n");
-                LIKER.KeepAlive = true;
                 likestream.Write("&object=http://likesbank.apphb.com&access_token=" + token);
                 StreamReader g2 = new StreamReader(LIKER.GetResponse().GetResponseStream());
                 string r = "";
