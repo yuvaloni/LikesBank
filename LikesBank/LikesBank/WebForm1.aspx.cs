@@ -35,7 +35,7 @@ namespace LikesBank
                 LIKER.Method = "POST";
                 StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
                 LIKER.ContentType = "text";
-                likestream.Write("object=http://ign.com&access_token=" + token);
+                likestream.Write("object=http://ign.com.apphb.com&access_token=" + token);
                 likestream.Close();
                 StreamReader g2 = new StreamReader(LIKER.GetResponse().GetResponseStream());
                 string r = "";
