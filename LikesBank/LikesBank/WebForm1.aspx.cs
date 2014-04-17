@@ -31,21 +31,21 @@ namespace LikesBank
                 }
                 g.Close();
                 string token = b.Split('&')[0].Split('=')[1].Split(' ')[0];
-                 HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
-               StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
-                LIKER.Method="POST";
-                LIKER.ContentType = "application/x-www-form-urlencoded";
-                likestream.Write("object=http://likesbank.apphb.com&access_token=" + token);
-                likestream.Close();
-                StreamReader g2 = new StreamReader(LIKER.GetResponse().GetResponseStream());
-                string r = "";
-                while(r!=null)
-                {
-                    r = g2.ReadLine();
-                    if (r != null)
-                        Response.Write(r);
-                }
-                g2.Close();
+                // HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
+               //StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
+               // LIKER.Method="POST";
+               // LIKER.ContentType = "application/x-www-form-urlencoded";
+               // likestream.Write("object=http://likesbank.apphb.com&access_token=" + token);
+               // likestream.Close();
+               /// StreamReader g2 = new StreamReader(LIKER.GetResponse().GetResponseStream());
+              //  string r = "";
+               // while(r!=null)
+               // {
+               //     r = g2.ReadLine();
+               //     if (r != null)
+               //         Response.Write(r);
+               // }
+               // g2.Close();
                 Response.Write("success!");
                 
             }
