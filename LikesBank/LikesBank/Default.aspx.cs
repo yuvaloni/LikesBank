@@ -25,6 +25,7 @@ namespace LikesBank
                 StreamReader g = new StreamReader(fuck.GetResponse().GetResponseStream());
                 string u = "";
                 string b = "";
+              
                 while (u != null)
                 {
                     u = g.ReadLine();
@@ -40,7 +41,7 @@ namespace LikesBank
                 b = "";
                 while (u != null)
                 {
-                    u = g.ReadLine();
+                    u = s.ReadLine();
                     if (u != null)
                         b += u;
                 }
@@ -52,24 +53,7 @@ namespace LikesBank
             }
         }
 
-        protected void connect()
-        {
 
-                HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/Default.aspx&client_secret=0420278b8f5a0985ba21458afac9e257&code=" + Request.QueryString["code"]);
-                StreamReader g = new StreamReader(fuck.GetResponse().GetResponseStream());
-                string u = "";
-                string b = "";
-                while (u != null)
-                {
-
-                }
-                g.Close();
-                token = b.Split('&')[0].Split('=')[1].Split(' ')[0];
-               
-
-                
-
-        }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
