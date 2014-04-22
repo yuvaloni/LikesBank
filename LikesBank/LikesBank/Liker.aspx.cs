@@ -36,23 +36,25 @@ namespace LikesBank
                 {
                     try
                     {
+                        if (sqlr.GetString(3) == "yes")
+                        {
+                            HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
+                            LIKER.Method = "POST";
+                            StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
+                            LIKER.ContentType = "text";
 
-                        HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
-                        LIKER.Method = "POST";
-                        StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
-                        LIKER.ContentType = "text";
+                            likestream.Write("object=" + sqlr.GetString(2) + "&access_token=" + token);
+                            likestream.Close();
+                            LIKER.GetResponse();
+                            LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
+                            LIKER.Method = "POST";
+                            likestream = new StreamWriter(LIKER.GetRequestStream());
+                            LIKER.ContentType = "text";
 
-                        likestream.Write("object=" + sqlr.GetString(2) + "&access_token=" + token);
-                        likestream.Close();
-                        LIKER.GetResponse();
-                        LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
-                        LIKER.Method = "POST";
-                        likestream = new StreamWriter(LIKER.GetRequestStream());
-                        LIKER.ContentType = "text";
-
-                        likestream.Write("object=" + site + "&access_token=" + sqlr.GetString(1));
-                        likestream.Close();
-                        LIKER.GetResponse();
+                            likestream.Write("object=" + site + "&access_token=" + sqlr.GetString(1));
+                            likestream.Close();
+                            LIKER.GetResponse();
+                        }
                     }
                     catch
                     {
@@ -68,23 +70,25 @@ namespace LikesBank
                 {
                     try
                     {
+                        if (sqlr.GetString(4) == "yes")
+                        {
+                            HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/links");
+                            LIKER.Method = "POST";
+                            StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
+                            LIKER.ContentType = "text";
 
-                        HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/links");
-                        LIKER.Method = "POST";
-                        StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
-                        LIKER.ContentType = "text";
+                            likestream.Write("link=" + sqlr.GetString(2) + "&access_token=" + token);
+                            likestream.Close();
+                            LIKER.GetResponse();
+                            LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/links");
+                            LIKER.Method = "POST";
+                            likestream = new StreamWriter(LIKER.GetRequestStream());
+                            LIKER.ContentType = "text";
 
-                        likestream.Write("link=" + sqlr.GetString(2) + "&access_token=" + token);
-                        likestream.Close();
-                        LIKER.GetResponse();
-                        LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/links");
-                        LIKER.Method = "POST";
-                        likestream = new StreamWriter(LIKER.GetRequestStream());
-                        LIKER.ContentType = "text";
-
-                        likestream.Write("link=" + site + "&access_token=" + sqlr.GetString(1));
-                        likestream.Close();
-                        LIKER.GetResponse();
+                            likestream.Write("link=" + site + "&access_token=" + sqlr.GetString(1));
+                            likestream.Close();
+                            LIKER.GetResponse();
+                        }
                     }
                     catch
                     {
