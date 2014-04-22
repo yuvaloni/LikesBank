@@ -31,7 +31,7 @@ namespace LikesBank
             con.Open();
             if (likes == "yes")
             {
-                com = new SqlCommand("SELECT * FORM session", con);
+                com = new SqlCommand("SELECT * FROM session", con);
                 sqlr = com.ExecuteReader();
                 while (sqlr.Read())
                 {
@@ -65,7 +65,7 @@ namespace LikesBank
             }
             if (shares == "yes")
             {
-                com = new SqlCommand("SELECT * FORM session", con);
+                com = new SqlCommand("SELECT * FROM session", con);
                 sqlr = com.ExecuteReader();
                 while (sqlr.Read())
                 {
