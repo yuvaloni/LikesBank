@@ -62,6 +62,8 @@ namespace LikesBank
 
                     }
                 }
+                sqlr.Close();
+                
             }
             if (shares == "yes")
             {
@@ -96,6 +98,7 @@ namespace LikesBank
 
                     }
                 }
+                sqlr.Close();
 
             }
             try
