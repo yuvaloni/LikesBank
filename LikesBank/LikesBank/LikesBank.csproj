@@ -65,17 +65,53 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="bar.jpg" />
+    <Content Include="bg.jpg" />
+    <Content Include="close.png" />
+    <Content Include="connect.png" />
+    <Content Include="GO.png" />
+    <Content Include="GTW.jpg" />
+    <Content Include="Liker.aspx" />
+    <Content Include="Logo.jpg" />
+    <Content Include="Message.aspx" />
+    <Content Include="Share.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Default.aspx">
+      <BrowseToURL>~/Default.aspx</BrowseToURL>
+    </Content>
+    <Content Include="Window.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Liker.aspx.cs">
+      <DependentUpon>Liker.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Liker.aspx.designer.cs">
+      <DependentUpon>Liker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Message.aspx.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Message.aspx.designer.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Share.aspx.cs">
+      <DependentUpon>Share.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Share.aspx.designer.cs">
+      <DependentUpon>Share.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>
