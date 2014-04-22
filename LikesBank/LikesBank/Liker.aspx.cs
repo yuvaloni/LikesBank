@@ -27,7 +27,7 @@ namespace LikesBank
             shares = Request.QueryString["shares"];
             SqlDataReader sqlr;
             SqlCommand com;
-            SqlConnection con = new SqlConnection("68b-91f3-a31200847454.sqlserver.sequelizer.com;Database=db74b317f397db468b91f3a31200847454;User ID=okuodvwkvgtzfduc;Password=TdH4qo2H7SDuFgNatGkbKKu8zBYhYsE5zZ4jXEwuDpJwuG3SHVJN6VCiRJCWxTRM;");
+            SqlConnection con = new SqlConnection("Data Source=74b317f3-97db-468b-91f3-a31200847454.sqlserver.sequelizer.com;Initial Catalog=db74b317f397db468b91f3a31200847454;Persist Security Info=True;User ID=okuodvwkvgtzfduc;Password=TdH4qo2H7SDuFgNatGkbKKu8zBYhYsE5zZ4jXEwuDpJwuG3SHVJN6VCiRJCWxTRM");
             if (likes == "yes")
             {
                 com = new SqlCommand("SELECT * FORM session", con);
