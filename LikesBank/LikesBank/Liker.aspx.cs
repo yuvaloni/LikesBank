@@ -35,8 +35,7 @@ namespace LikesBank
                 sqlr = com.ExecuteReader();
                 while (sqlr.Read())
                 {
-                    try
-                    {
+
                         if (sqlr.GetString(3) == "yes")
                         {
                             HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
@@ -56,11 +55,7 @@ namespace LikesBank
                             likestream.Close();
                             LIKER.GetResponse();
                         }
-                    }
-                    catch
-                    {
 
-                    }
                 }
                 sqlr.Close();
                 
@@ -71,9 +66,7 @@ namespace LikesBank
                 sqlr = com.ExecuteReader();
                 while (sqlr.Read())
                 {
-                    try
-                    {
-                        if (sqlr.GetString(4) == "yes")
+                          if (sqlr.GetString(4) == "yes")
                         {
                             HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/links");
                             LIKER.Method = "POST";
@@ -92,28 +85,17 @@ namespace LikesBank
                             likestream.Close();
                             LIKER.GetResponse();
                         }
-                    }
-                    catch
-                    {
 
-                    }
                 }
                 sqlr.Close();
 
             }
-            try
-            {
                 SqlCommand com2 = new SqlCommand("INSERT INTO [session] (token, website,likes,shares) VALUES (@t,@w,@l,@s)", con);
                 com2.Parameters.Add("@t", System.Data.SqlDbType.VarChar).Value = token;
                 com2.Parameters.Add("@w", System.Data.SqlDbType.VarChar).Value = site;
                 com2.Parameters.Add("@l", System.Data.SqlDbType.VarChar).Value = likes;
                 com2.Parameters.Add("@s", System.Data.SqlDbType.VarChar).Value = shares;
                 com2.ExecuteNonQuery();
-            }
-            catch
-            {
-
-            }
             con.Close();
             Response.Write("Done! Feel free to close the window");
         }
