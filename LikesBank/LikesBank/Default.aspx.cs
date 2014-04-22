@@ -21,7 +21,7 @@ namespace LikesBank
             {
                 HtmlControl shit = (HtmlControl)Page.FindControl("w2");
                 shit.Visible = true;
-                HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/webform1.aspx&client_secret=0420278b8f5a0985ba21458afac9e257&code=" + Request.QueryString["code"]);
+                HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/Default.aspx&client_secret=0420278b8f5a0985ba21458afac9e257&code=" + Request.QueryString["code"]);
                 StreamReader g = new StreamReader(fuck.GetResponse().GetResponseStream());
                 string u = "";
                 string b = "";
@@ -55,7 +55,7 @@ namespace LikesBank
         protected void connect()
         {
 
-                HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/webform1.aspx&client_secret=0420278b8f5a0985ba21458afac9e257&code=" + Request.QueryString["code"]);
+                HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/Default.aspx&client_secret=0420278b8f5a0985ba21458afac9e257&code=" + Request.QueryString["code"]);
                 StreamReader g = new StreamReader(fuck.GetResponse().GetResponseStream());
                 string u = "";
                 string b = "";
@@ -84,7 +84,7 @@ namespace LikesBank
         }
         protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("https://www.facebook.com/dialog/oauth?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/webform1.aspx&response_type=code&scope=publish_actions");
+            Response.Redirect("https://www.facebook.com/dialog/oauth?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/Default.aspx&response_type=code&scope=publish_actions");
         }
 
         protected void ImageButton5_Click(object sender, ImageClickEventArgs e)
