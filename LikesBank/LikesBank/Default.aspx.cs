@@ -17,7 +17,6 @@ namespace LikesBank
         private string token;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["token"] = token;
             if (Session["token"] != null)
                 token = (string)Session["token"];
             Session["site"] = TextBox2.Text;
@@ -48,6 +47,7 @@ namespace LikesBank
                 }
                 g.Close();
                 token = b.Split('&')[0].Split('=')[1].Split(' ')[0];
+                Session["token"] = token;
                 HttpWebRequest EMAIL = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me?fields=email&access_token="+token);
                 EMAIL.Method = "GET";
                 StreamReader s = new StreamReader(EMAIL.GetResponse().GetResponseStream());
