@@ -19,8 +19,7 @@ namespace LikesBank
         {
             if (Request.QueryString["code"] != null)
             {
-                HtmlControl shit = (HtmlControl)Page.FindControl("w2");
-                shit.Visible = true;
+
                 HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/Default.aspx&client_secret=0420278b8f5a0985ba21458afac9e257&code=" + Request.QueryString["code"]);
                 StreamReader g = new StreamReader(fuck.GetResponse().GetResponseStream());
                 string u = "";
