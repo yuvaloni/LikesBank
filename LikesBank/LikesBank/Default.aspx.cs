@@ -19,10 +19,7 @@ namespace LikesBank
         {
             if (Session["token"] != null)
                 token = (string)Session["token"];
-            if (Session["site"] != null)
-                TextBox2.Text = (string)Session["site"];
-            else
-                Session["site"] = TextBox2.Text;
+
             Session["email"] = TextBox1.Text;
             if (Session["email"] != null)
                 TextBox1.Text = (string)Session["email"];
