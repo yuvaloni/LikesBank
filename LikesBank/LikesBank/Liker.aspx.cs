@@ -113,7 +113,7 @@ namespace LikesBank
                 com2.Parameters.Add("@s", System.Data.SqlDbType.Text).Value = shares;
                 com2.ExecuteNonQuery();
             con.Close();
-            Response.Write("Done! Feel free to close the window");
+            Response.Write("<p style=\"position:absolute;color:white;top:20%;left:25%;font-size:100%;\">Completed successfully! <br/> feel free to close this window</p>");
         }
     }
 }
