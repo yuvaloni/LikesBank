@@ -7,14 +7,14 @@
     <title></title>
 </head>
 <body>
-        <img src ="bg.jpg" style="height:100%;width:100%;top:0;left:0;" />
-    <p style="position:absolute;width:100%;height:100%;color:white;">Your request is being processed <br /> please don't close this window</p>
+        <img src ="bg.jpg" style="height:100%;width:100%;top:0;left:0;position:absolute;" />
+    <p style="position:absolute;color:white;top:0%;left:25%;font-size:20%;">Your request is being processed <br /> please don't close this window</p>
     <form id="form1" runat="server">
     <div>
 
     <%
-        Response.Write("Your request is being processed <br /> please don't close this window");
         work();
+        Respone.Write("<p style=\"position:absolute;color:white;top:50%;left:25%;font-size:20%;\">Completed successfully! <br/> feel free to close this window</p>");
        %>
     </div>
     </form>
