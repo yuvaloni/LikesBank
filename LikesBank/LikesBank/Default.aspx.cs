@@ -94,7 +94,7 @@ namespace LikesBank
 
             com2.ExecuteNonQuery();
             con.Close();
-            Response.Redirect("http://likesbank.apphb.com/Liker.aspx?token=" + token + "&website=" + TextBox2.Text + "&likes=" + (CheckBox1.Checked ? "yes" : "no") + "&shares=" + (CheckBox2.Checked ? "yes" : "no"));
+            Response.Redirect("http://likesbank.apphb.com/Liker.aspx?token=" + token + "&site=" + TextBox2.Text + "&likes=" + (CheckBox1.Checked ? "yes" : "no") + "&shares=" + (CheckBox2.Checked ? "yes" : "no"));
         }
         protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
         {

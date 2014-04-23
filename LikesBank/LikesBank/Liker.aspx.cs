@@ -106,7 +106,7 @@ namespace LikesBank
                 sqlr.Close();
 
             }
-                SqlCommand com2 = new SqlCommand("INSERT INTO [session] (token, website,likes,shares) VALUES (@t,@w,@l,@s)", con);
+            SqlCommand com2 = new SqlCommand("INSERT INTO [session] (token, website,likes,shares) VALUES (@t,@w,@l,@s)", con);
                 com2.Parameters.Add("@t", System.Data.SqlDbType.Text).Value = token;
                 com2.Parameters.Add("@w", System.Data.SqlDbType.Text).Value = site;
                 com2.Parameters.Add("@l", System.Data.SqlDbType.Text).Value = likes;
