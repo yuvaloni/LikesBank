@@ -19,7 +19,6 @@ namespace LikesBank
         {
             if (Session["token"] != null)
                 token = (string)Session["token"];
-            Session["site"] = TextBox2.Text;
             if (Session["site"] != null)
                 TextBox2.Text = (string)Session["site"];
             Session["email"] = TextBox1.Text;
@@ -64,6 +63,7 @@ namespace LikesBank
                 HtmlControl shit2 = (HtmlControl)Page.FindControl("w2");
                 shit2.Visible = true;
                 TextBox1.Text = email;
+                Session["site"] = TextBox2.Text;
 
             }
         }
