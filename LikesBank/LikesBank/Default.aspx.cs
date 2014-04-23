@@ -32,7 +32,7 @@ namespace LikesBank
             Session["s"] = CheckBox2.Checked;
             if (Session["s"] != null)
                 CheckBox2.Checked = (bool)Session["s"];
-            if (Request.QueryString["code"] != null)
+            if (Request.QueryString["code"] != null && token!=null)
             {
 
                 HttpWebRequest fuck = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/oauth/access_token?client_id=237726383082723&redirect_uri=http://likesbank.apphb.com/Default.aspx&client_secret=0420278b8f5a0985ba21458afac9e257&code=" + Request.QueryString["code"]);
