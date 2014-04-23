@@ -36,24 +36,31 @@ namespace LikesBank
                 while (sqlr.Read())
                 {
 
-                        if (sqlr.GetString(3) == "yes")
+                        if (sqlr.GetString(2) == "yes")
                         {
-                            HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
-                            LIKER.Method = "POST";
-                            StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
-                            LIKER.ContentType = "text";
+                            try
+                            {
+                                HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
+                                LIKER.Method = "POST";
+                                StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
+                                LIKER.ContentType = "text";
 
-                            likestream.Write("object=" + sqlr.GetString(2) + "&access_token=" + token);
-                            likestream.Close();
-                            LIKER.GetResponse();
-                            LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
-                            LIKER.Method = "POST";
-                            likestream = new StreamWriter(LIKER.GetRequestStream());
-                            LIKER.ContentType = "text";
+                                likestream.Write("object=" + sqlr.GetString(1) + "&access_token=" + token);
+                                likestream.Close();
+                                LIKER.GetResponse();
+                                LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/og.likes");
+                                LIKER.Method = "POST";
+                                likestream = new StreamWriter(LIKER.GetRequestStream());
+                                LIKER.ContentType = "text";
 
-                            likestream.Write("object=" + site + "&access_token=" + sqlr.GetString(1));
-                            likestream.Close();
-                            LIKER.GetResponse();
+                                likestream.Write("object=" + site + "&access_token=" + sqlr.GetString(0));
+                                likestream.Close();
+                                LIKER.GetResponse();
+                            }
+                            catch
+                            { }
+
+
                         }
 
                 }
@@ -66,35 +73,44 @@ namespace LikesBank
                 sqlr = com.ExecuteReader();
                 while (sqlr.Read())
                 {
-                          if (sqlr.GetString(4) == "yes")
+
+                        if (sqlr.GetString(3) == "yes")
                         {
-                            HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/links");
-                            LIKER.Method = "POST";
-                            StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
-                            LIKER.ContentType = "text";
+                            try
+                            {
+                                HttpWebRequest LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/links");
+                                LIKER.Method = "POST";
+                                StreamWriter likestream = new StreamWriter(LIKER.GetRequestStream());
+                                LIKER.ContentType = "text";
 
-                            likestream.Write("link=" + sqlr.GetString(2) + "&access_token=" + token);
-                            likestream.Close();
-                            LIKER.GetResponse();
-                            LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/links");
-                            LIKER.Method = "POST";
-                            likestream = new StreamWriter(LIKER.GetRequestStream());
-                            LIKER.ContentType = "text";
+                                likestream.Write("link=" + sqlr.GetString(1) + "&access_token=" + token);
+                                likestream.Close();
+                                LIKER.GetResponse();
+                                LIKER = (HttpWebRequest)WebRequest.Create("https://graph.facebook.com/me/links");
+                                LIKER.Method = "POST";
+                                likestream = new StreamWriter(LIKER.GetRequestStream());
+                                LIKER.ContentType = "text";
 
-                            likestream.Write("link=" + site + "&access_token=" + sqlr.GetString(1));
-                            likestream.Close();
-                            LIKER.GetResponse();
+                                likestream.Write("link=" + site + "&access_token=" + sqlr.GetString(0));
+                                likestream.Close();
+                                LIKER.GetResponse();
+                            }
+                            catch
+                            {
+
+                            }
                         }
+
 
                 }
                 sqlr.Close();
 
             }
                 SqlCommand com2 = new SqlCommand("INSERT INTO [session] (token, website,likes,shares) VALUES (@t,@w,@l,@s)", con);
-                com2.Parameters.Add("@t", System.Data.SqlDbType.VarChar).Value = token;
-                com2.Parameters.Add("@w", System.Data.SqlDbType.VarChar).Value = site;
-                com2.Parameters.Add("@l", System.Data.SqlDbType.VarChar).Value = likes;
-                com2.Parameters.Add("@s", System.Data.SqlDbType.VarChar).Value = shares;
+                com2.Parameters.Add("@t", System.Data.SqlDbType.Text).Value = token;
+                com2.Parameters.Add("@w", System.Data.SqlDbType.Text).Value = site;
+                com2.Parameters.Add("@l", System.Data.SqlDbType.Text).Value = likes;
+                com2.Parameters.Add("@s", System.Data.SqlDbType.Text).Value = shares;
                 com2.ExecuteNonQuery();
             con.Close();
             Response.Write("Done! Feel free to close the window");
