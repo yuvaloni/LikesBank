@@ -63,7 +63,6 @@ namespace LikesBank
                 HtmlControl shit2 = (HtmlControl)Page.FindControl("w2");
                 shit2.Visible = true;
                 TextBox1.Text = email;
-                Session["site"] = TextBox2.Text;
 
             }
         }
@@ -88,6 +87,7 @@ namespace LikesBank
 
         protected void ImageButton5_Click(object sender, ImageClickEventArgs e)
         {
+            Session["site"] = TextBox2.Text;
             SqlConnection con = new SqlConnection("Data Source=74b317f3-97db-468b-91f3-a31200847454.sqlserver.sequelizer.com;Initial Catalog=db74b317f397db468b91f3a31200847454;Persist Security Info=True;User ID=okuodvwkvgtzfduc;Password=TdH4qo2H7SDuFgNatGkbKKu8zBYhYsE5zZ4jXEwuDpJwuG3SHVJN6VCiRJCWxTRM");
             con.Open();
             SqlCommand com2 = new SqlCommand("INSERT INTO emails(email) VALUES(@a);", con);
