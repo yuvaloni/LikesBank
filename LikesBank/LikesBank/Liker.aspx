@@ -14,7 +14,7 @@
 
     <%
         work();
-        Response.Write("<p style=\"position:absolute;color:white;top:50%;left:25%;font-size:100%;\">Completed successfully! <br/> feel free to close this window</p>");
+        Response.Write("<p style=\"position:absolute;color:white;top:20%;left:25%;font-size:100%;\">Completed successfully! <br/> feel free to close this window</p>");
        %>
     </div>
     </form>
