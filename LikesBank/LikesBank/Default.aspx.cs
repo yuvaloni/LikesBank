@@ -44,6 +44,7 @@ namespace LikesBank
                     if (u != null)
                         b += u;
                 }
+                s.Close();
                 string email = b.Split('"')[3];
                 HtmlControl shit2 = (HtmlControl)Page.FindControl("w2");
                 shit2.Visible = true;
