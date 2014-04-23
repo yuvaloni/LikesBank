@@ -18,7 +18,10 @@ namespace BankBg
             SqlCommand com = new SqlCommand("DELETE FROM SESSION");
             com.ExecuteNonQuery();
             con.Close();
+<<<<<<< HEAD
             Console.WriteLine("ok");
+=======
+>>>>>>> 605129af0c813d30655fc48ab56ddbcb512b5d08
         }
     }
 }
