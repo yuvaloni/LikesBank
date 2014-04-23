@@ -17,7 +17,21 @@ namespace LikesBank
         private string token;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["token"] = token;
+            if (Session["token"] != null)
+                token = (string)Session["token"];
+            Session["site"] = TextBox2.Text;
+            if (Session["site"] != null)
+                TextBox2.Text = (string)Session["site"];
+            Session["email"] = TextBox1.Text;
+            if (Session["email"] != null)
+                TextBox1.Text = (string)Session["email"];
+            Session["l"] = CheckBox1.Checked;
+            if (Session["l"] != null)
+                CheckBox1.Checked = (bool)Session["l"];
+            Session["s"] = CheckBox2.Checked;
+            if (Session["s"] != null)
+                CheckBox2.Checked = (bool)Session["s"];
             if (Request.QueryString["code"] != null && token!=null)
             {
 
